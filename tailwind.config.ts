@@ -95,16 +95,30 @@ export default {
 					}
 				},
 				'float': {
-					'0%, 100%': { transform: 'translateY(0px)' },
-					'50%': { transform: 'translateY(-10px)' }
+					'0%, 100%': { 
+						transform: 'translateY(0px)' 
+					},
+					'50%': { 
+						transform: 'translateY(-10px)' 
+					}
 				},
 				'pulse-soft': {
-					'0%, 100%': { opacity: '1' },
-					'50%': { opacity: '0.8' }
+					'0%, 100%': { 
+						opacity: '1' 
+					},
+					'50%': { 
+						opacity: '0.8' 
+					}
 				},
 				'slide-up': {
-					'0%': { transform: 'translateY(20px)', opacity: '0' },
-					'100%': { transform: 'translateY(0px)', opacity: '1' }
+					'0%': { 
+						transform: 'translateY(20px)', 
+						opacity: '0' 
+					},
+					'100%': { 
+						transform: 'translateY(0px)', 
+						opacity: '1' 
+					}
 				}
 			},
 			animation: {
