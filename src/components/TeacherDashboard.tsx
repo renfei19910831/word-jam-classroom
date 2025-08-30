@@ -134,11 +134,30 @@ const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ onBack }) => {
                 </div>
               </CardHeader>
               <CardContent>
-                <WordCloud words={words} interactive={false} />
-                <div className="mt-4 text-center">
+                <WordCloud 
+                  words={words} 
+                  interactive={false}
+                  blurred={false}
+                  isTeacher={true}
+                />
+                <div className="mt-4 text-center space-y-2">
                   <p className="text-sm text-muted-foreground">
                     当前词语数量: <span className="font-semibold text-primary">{words.length}</span>
                   </p>
+                  <div className="flex justify-center items-center gap-4 text-xs text-muted-foreground">
+                    <span className="flex items-center gap-1">
+                      <div className="w-2 h-2 bg-education-blue rounded-full"></div>
+                      学习类
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <div className="w-2 h-2 bg-education-green rounded-full"></div>
+                      创新类
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <div className="w-2 h-2 bg-education-purple rounded-full"></div>
+                      协作类
+                    </span>
+                  </div>
                 </div>
               </CardContent>
             </Card>

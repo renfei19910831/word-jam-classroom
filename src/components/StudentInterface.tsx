@@ -162,10 +162,18 @@ const StudentInterface: React.FC<StudentInterfaceProps> = ({ onBack }) => {
               <CardContent>
                 {isConnected ? (
                   <>
-                    <WordCloud words={words} interactive={false} />
-                    <div className="mt-4 text-center">
+                    <WordCloud 
+                      words={words} 
+                      interactive={false} 
+                      blurred={true}
+                      isTeacher={false}
+                    />
+                    <div className="mt-4 text-center space-y-2">
                       <p className="text-sm text-muted-foreground">
                         你已提交 <span className="font-semibold text-primary">{submittedWords.length}</span> 个词语
+                      </p>
+                      <p className="text-xs text-education-blue">
+                        💡 词云已模糊处理，悬停查看，专注独立思考
                       </p>
                     </div>
                   </>
