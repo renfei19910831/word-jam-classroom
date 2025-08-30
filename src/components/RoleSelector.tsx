@@ -9,8 +9,24 @@ interface RoleSelectorProps {
 
 const RoleSelector: React.FC<RoleSelectorProps> = ({ onSelectRole }) => {
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <div className="w-full max-w-4xl mx-auto">
+    <div className="min-h-screen bg-background relative overflow-hidden flex items-center justify-center p-4">
+      {/* 流光背景效果 */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* 主要流光 */}
+        <div className="absolute -top-40 -left-40 w-80 h-80 bg-gradient-to-r from-primary/20 via-primary/10 to-transparent rounded-full blur-3xl animate-[float_6s_ease-in-out_infinite]"></div>
+        <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-gradient-to-l from-secondary/20 via-secondary/10 to-transparent rounded-full blur-3xl animate-[float_8s_ease-in-out_infinite_reverse]"></div>
+        
+        {/* 辅助流光 */}
+        <div className="absolute top-1/4 -right-20 w-60 h-60 bg-gradient-to-br from-accent/15 via-accent/5 to-transparent rounded-full blur-2xl animate-[float_10s_ease-in-out_infinite_alternate]"></div>
+        <div className="absolute bottom-1/4 -left-20 w-72 h-72 bg-gradient-to-tr from-primary/15 via-primary/8 to-transparent rounded-full blur-2xl animate-[float_12s_ease-in-out_infinite_alternate-reverse]"></div>
+        
+        {/* 微光粒子 */}
+        <div className="absolute top-1/3 left-1/4 w-32 h-32 bg-gradient-radial from-primary/20 to-transparent rounded-full blur-xl animate-[pulse_4s_ease-in-out_infinite]"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-24 h-24 bg-gradient-radial from-secondary/25 to-transparent rounded-full blur-lg animate-[pulse_6s_ease-in-out_infinite_alternate]"></div>
+      </div>
+      
+      {/* 内容层 */}
+      <div className="w-full max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-12 animate-slide-up">
           <div className="flex flex-col items-center mb-8">
             <img 
