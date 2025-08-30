@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Users, UserCheck, BookOpen, PenTool } from 'lucide-react';
+import cnuLogo from '@/assets/cnu-logo.png';
 
 interface RoleSelectorProps {
   onSelectRole: (role: 'teacher' | 'student') => void;
@@ -12,8 +13,15 @@ const RoleSelector: React.FC<RoleSelectorProps> = ({ onSelectRole }) => {
     <div className="min-h-screen bg-gradient-hero flex items-center justify-center p-4">
       <div className="w-full max-w-4xl mx-auto">
         <div className="text-center mb-12 animate-slide-up">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-card rounded-full shadow-glow mb-6 animate-float">
-            <BookOpen className="w-10 h-10 text-primary" />
+          <div className="flex flex-col items-center mb-6">
+            <img 
+              src={cnuLogo} 
+              alt="首都师范大学" 
+              className="h-16 md:h-20 w-auto mb-4 animate-float"
+            />
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-card rounded-full shadow-glow animate-float">
+              <BookOpen className="w-8 h-8 text-primary" />
+            </div>
           </div>
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
             协作词云

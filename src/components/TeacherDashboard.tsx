@@ -7,6 +7,7 @@ import { Separator } from '@/components/ui/separator';
 import WordCloud from './WordCloud';
 import { ArrowLeft, Download, RefreshCw, Trash2, Users, Eye, Maximize, Minimize, Heart, Circle, Star, Building } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import cnuLogo from '@/assets/cnu-logo.png';
 
 interface Word {
   id: string;
@@ -186,6 +187,11 @@ const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ onBack }) => {
               >
                 <ArrowLeft className="w-4 h-4" />
               </Button>
+              <img 
+                src={cnuLogo} 
+                alt="首都师范大学" 
+                className="h-12 w-auto"
+              />
               <div>
                 <h1 className="text-3xl font-bold text-foreground">老师控制台</h1>
                 <p className="text-muted-foreground">管理和查看实时词云</p>
