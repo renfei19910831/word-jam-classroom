@@ -49,7 +49,7 @@ const RoleSelector: React.FC<RoleSelectorProps> = ({ onSelectRole }) => {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-full mx-auto mb-4 shadow-soft">
                 <UserCheck className="w-8 h-8 text-white" />
               </div>
-              <CardTitle className="text-2xl text-foreground">老师端</CardTitle>
+              <CardTitle className="text-2xl text-foreground">教师端</CardTitle>
               <CardDescription className="text-muted-foreground">
                 创建和管理词云，查看学生提交的内容
               </CardDescription>
@@ -65,7 +65,7 @@ const RoleSelector: React.FC<RoleSelectorProps> = ({ onSelectRole }) => {
                 className="w-full bg-gradient-primary hover:shadow-elegant transition-all duration-300"
                 size="lg"
               >
-                进入老师端
+                进入教师端
               </Button>
             </CardContent>
           </Card>

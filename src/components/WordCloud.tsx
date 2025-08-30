@@ -150,7 +150,7 @@ const WordCloud: React.FC<WordCloudProps> = ({
         </>
       )}
       
-      {/* 形状指示线（仅在老师端显示） */}
+      {/* 形状指示线（仅在教师端显示） */}
       {isTeacher && shape !== 'random' && (
         <div className="absolute inset-0 opacity-20">
           <svg width="100%" height="100%" className="pointer-events-none">

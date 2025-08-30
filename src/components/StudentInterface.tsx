@@ -215,7 +215,7 @@ const StudentInterface: React.FC<StudentInterfaceProps> = ({ onBack }) => {
                     <Label htmlFor="sessionCode">会话代码</Label>
                     <Input
                       id="sessionCode"
-                      placeholder="输入老师提供的代码"
+                      placeholder="输入教师提供的代码"
                       value={sessionCode}
                       onChange={(e) => setSessionCode(e.target.value.toUpperCase())}
                       onKeyPress={handleKeyPress}
