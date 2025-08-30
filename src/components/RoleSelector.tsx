@@ -13,13 +13,12 @@ const RoleSelector: React.FC<RoleSelectorProps> = ({ onSelectRole }) => {
       <div className="w-full max-w-4xl mx-auto">
         <div className="text-center mb-12 animate-slide-up">
           <div className="flex flex-col items-center mb-6">
-            <img 
-              src="/lovable-uploads/d05ccbc2-63b0-4ad5-9b2d-7967e9568ac4.png" 
-              alt="首都师范大学" 
-              className="h-16 md:h-20 w-auto mb-4 animate-float"
-            />
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-card rounded-full shadow-glow animate-float">
-              <BookOpen className="w-8 h-8 text-primary" />
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-elegant mb-6">
+              <img 
+                src="/lovable-uploads/d05ccbc2-63b0-4ad5-9b2d-7967e9568ac4.png" 
+                alt="首都师范大学" 
+                className="h-16 md:h-20 w-auto"
+              />
             </div>
           </div>
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
