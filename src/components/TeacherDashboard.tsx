@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import WordCloud from './WordCloud';
-import { ArrowLeft, Download, RefreshCw, Trash2, Users, Eye } from 'lucide-react';
+import { ArrowLeft, Download, RefreshCw, Trash2, Users, Eye, Maximize, Minimize, Heart, Circle, Star, Building } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 interface Word {
@@ -25,6 +25,8 @@ interface TeacherDashboardProps {
 const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ onBack }) => {
   const { toast } = useToast();
   const [sessionCode] = useState('ABC123'); // 模拟会话代码
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [wordCloudShape, setWordCloudShape] = useState<'random' | 'heart' | 'circle' | 'star' | 'logo'>('random');
   const [words, setWords] = useState<Word[]>([
     {
       id: '1',
@@ -83,6 +85,93 @@ const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ onBack }) => {
     });
   };
 
+  const toggleFullscreen = () => {
+    setIsFullscreen(!isFullscreen);
+    toast({
+      title: isFullscreen ? "退出全屏" : "进入全屏",
+      description: isFullscreen ? "词云已恢复正常显示" : "词云已全屏显示",
+    });
+  };
+
+  const handleShapeChange = (shape: 'random' | 'heart' | 'circle' | 'star' | 'logo') => {
+    setWordCloudShape(shape);
+    toast({
+      title: "形状已更改",
+      description: `词云形状已切换为${shape === 'random' ? '随机' : shape === 'heart' ? '爱心' : shape === 'circle' ? '圆形' : shape === 'star' ? '星形' : '校徽'}`,
+    });
+  };
+
+  if (isFullscreen) {
+    return (
+      <div className="fixed inset-0 z-50 bg-background p-4">
+        <div className="h-full flex flex-col">
+          {/* 全屏头部控制 */}
+          <div className="flex items-center justify-between mb-4 bg-card/50 backdrop-blur-sm rounded-lg p-4 shadow-soft">
+            <div className="flex items-center gap-4">
+              <h2 className="text-xl font-bold text-foreground">词云全屏展示</h2>
+              <div className="flex items-center gap-2">
+                <span className="text-sm text-muted-foreground">形状:</span>
+                <div className="flex gap-1">
+                  <Button
+                    variant={wordCloudShape === 'random' ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => handleShapeChange('random')}
+                  >
+                    随机
+                  </Button>
+                  <Button
+                    variant={wordCloudShape === 'heart' ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => handleShapeChange('heart')}
+                  >
+                    <Heart className="w-4 h-4" />
+                  </Button>
+                  <Button
+                    variant={wordCloudShape === 'circle' ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => handleShapeChange('circle')}
+                  >
+                    <Circle className="w-4 h-4" />
+                  </Button>
+                  <Button
+                    variant={wordCloudShape === 'star' ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => handleShapeChange('star')}
+                  >
+                    <Star className="w-4 h-4" />
+                  </Button>
+                  <Button
+                    variant={wordCloudShape === 'logo' ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => handleShapeChange('logo')}
+                  >
+                    <Building className="w-4 h-4" />
+                  </Button>
+                </div>
+              </div>
+            </div>
+            <Button variant="outline" onClick={toggleFullscreen}>
+              <Minimize className="w-4 h-4" />
+              退出全屏
+            </Button>
+          </div>
+          
+          {/* 全屏词云 */}
+          <div className="flex-1">
+            <WordCloud 
+              words={words} 
+              interactive={false}
+              blurred={false}
+              isTeacher={true}
+              shape={wordCloudShape}
+              fullscreen={true}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-background p-4">
       <div className="max-w-7xl mx-auto">
@@ -126,6 +215,48 @@ const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ onBack }) => {
                     <CardDescription>学生提交的词语实时展示</CardDescription>
                   </div>
                   <div className="flex gap-2">
+                    <div className="flex items-center gap-1 mr-2">
+                      <span className="text-xs text-muted-foreground">形状:</span>
+                      <Button
+                        variant={wordCloudShape === 'random' ? "default" : "outline"}
+                        size="sm"
+                        onClick={() => handleShapeChange('random')}
+                      >
+                        随机
+                      </Button>
+                      <Button
+                        variant={wordCloudShape === 'heart' ? "default" : "outline"}
+                        size="sm"
+                        onClick={() => handleShapeChange('heart')}
+                      >
+                        <Heart className="w-3 h-3" />
+                      </Button>
+                      <Button
+                        variant={wordCloudShape === 'circle' ? "default" : "outline"}
+                        size="sm"
+                        onClick={() => handleShapeChange('circle')}
+                      >
+                        <Circle className="w-3 h-3" />
+                      </Button>
+                      <Button
+                        variant={wordCloudShape === 'star' ? "default" : "outline"}
+                        size="sm"
+                        onClick={() => handleShapeChange('star')}
+                      >
+                        <Star className="w-3 h-3" />
+                      </Button>
+                      <Button
+                        variant={wordCloudShape === 'logo' ? "default" : "outline"}
+                        size="sm"
+                        onClick={() => handleShapeChange('logo')}
+                      >
+                        <Building className="w-3 h-3" />
+                      </Button>
+                    </div>
+                    <Button variant="outline" size="sm" onClick={toggleFullscreen}>
+                      <Maximize className="w-4 h-4" />
+                      全屏
+                    </Button>
                     <Button variant="outline" size="sm" onClick={handleExport}>
                       <Download className="w-4 h-4" />
                       导出
@@ -139,6 +270,8 @@ const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ onBack }) => {
                   interactive={false}
                   blurred={false}
                   isTeacher={true}
+                  shape={wordCloudShape}
+                  fullscreen={false}
                 />
                 <div className="mt-4 text-center space-y-2">
                   <p className="text-sm text-muted-foreground">
@@ -158,6 +291,9 @@ const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ onBack }) => {
                       协作类
                     </span>
                   </div>
+                  <p className="text-xs text-education-blue">
+                    💡 当前形状: {wordCloudShape === 'random' ? '随机分布' : wordCloudShape === 'heart' ? '爱心形状' : wordCloudShape === 'circle' ? '圆形分布' : wordCloudShape === 'star' ? '星形分布' : '校徽形状'}
+                  </p>
                 </div>
               </CardContent>
             </Card>
