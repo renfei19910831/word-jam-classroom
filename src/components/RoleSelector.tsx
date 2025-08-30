@@ -9,11 +9,11 @@ interface RoleSelectorProps {
 
 const RoleSelector: React.FC<RoleSelectorProps> = ({ onSelectRole }) => {
   return (
-    <div className="min-h-screen bg-gradient-hero flex items-center justify-center p-4">
+    <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <div className="w-full max-w-4xl mx-auto">
         <div className="text-center mb-12 animate-slide-up">
           <div className="flex flex-col items-center mb-6">
-            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-elegant mb-6">
+            <div className="bg-primary/5 backdrop-blur-sm rounded-2xl p-6 shadow-elegant mb-6 border border-primary/10">
               <img 
                 src="/lovable-uploads/d05ccbc2-63b0-4ad5-9b2d-7967e9568ac4.png" 
                 alt="首都师范大学" 
@@ -21,10 +21,10 @@ const RoleSelector: React.FC<RoleSelectorProps> = ({ onSelectRole }) => {
               />
             </div>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4">
             协作词云
           </h1>
-          <p className="text-xl text-white/80 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             实时协作的课堂词云工具，让师生互动更有趣
           </p>
         </div>
@@ -84,7 +84,7 @@ const RoleSelector: React.FC<RoleSelectorProps> = ({ onSelectRole }) => {
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-white/60 text-sm">
+          <p className="text-muted-foreground text-sm">
             无需注册，即开即用的课堂协作工具
           </p>
         </div>
