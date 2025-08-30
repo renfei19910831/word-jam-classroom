@@ -2,7 +2,6 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Users, UserCheck, BookOpen, PenTool } from 'lucide-react';
-import cnuLogo from '@/assets/cnu-logo.png';
 
 interface RoleSelectorProps {
   onSelectRole: (role: 'teacher' | 'student') => void;
@@ -15,7 +14,7 @@ const RoleSelector: React.FC<RoleSelectorProps> = ({ onSelectRole }) => {
         <div className="text-center mb-12 animate-slide-up">
           <div className="flex flex-col items-center mb-6">
             <img 
-              src={cnuLogo} 
+              src="/lovable-uploads/d05ccbc2-63b0-4ad5-9b2d-7967e9568ac4.png" 
               alt="首都师范大学" 
               className="h-16 md:h-20 w-auto mb-4 animate-float"
             />
